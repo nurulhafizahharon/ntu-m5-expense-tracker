@@ -1,13 +1,13 @@
 import { Button, StyleSheet, View } from "react-native";
 
-export default function FoodScreen({ navigation }) {
+export default function ExpensesScreen({ navigation }) {
   // const handleAddFood = () => {
   //   navigation.navigate("AddFood");
   // };
 
   return (
     <View style={styles.button}>
-      <Button title="➕" onPress={() => navigation.navigate("AddFood")} />
+      <Button title="➕" onPress={() => navigation.navigate("AddExpense")} />
     </View>
   );
 }

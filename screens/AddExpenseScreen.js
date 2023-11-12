@@ -1,18 +1,18 @@
 import React, { useState } from "react";
 import { View, Text, TextInput, Button, StyleSheet } from "react-native";
 
-export default function AddFoodScreen() {
-  const [food, setFood] = useState("");
+export default function AddExpenseScreen() {
+  const [expense, setExpense] = useState("");
   const [amount, setAmount] = useState("");
   const [date, setDate] = useState("");
+  const [category, setCategory] = useState(""); // Need to change to array and change category as listdown
 
   return (
     <View>
-      <Text>Add Food</Text>
       <TextInput
-        placeholder="Food"
-        value={food}
-        onChangeText={(text) => setFood(text)}
+        placeholder="Expense"
+        value={expense}
+        onChangeText={(text) => setExpense(text)}
       />
       <TextInput
         placeholder="Amount"
@@ -25,8 +25,13 @@ export default function AddFoodScreen() {
         value={date}
         onChangeText={(text) => setDate(text)}
       />
+      <TextInput
+        placeholder="Category"
+        value={category}
+        onChangeText={(text) => setCategory(text)}
+      />
       <Button
-        title="Add Food"
+        title="Add Expense"
         // onPress={}
       />
     </View>

@@ -1,5 +1,5 @@
-import FoodScreen from "./FoodScreen";
-import TransportScreen from "./TransportScreen";
+import ExpensesScreen from "./ExpensesScreen";
+import CategoryScreen from "./CategoryScreen";
 import { NavigationContainer } from "@react-navigation/native";
 import { createDrawerNavigator } from "@react-navigation/drawer";
 
@@ -8,8 +8,8 @@ const Drawer = createDrawerNavigator();
 export default function HomeScreen() {
   return (
     <Drawer.Navigator>
-      <Drawer.Screen name="Food" component={FoodScreen} />
-      <Drawer.Screen name="Transport" component={TransportScreen} />
+      <Drawer.Screen name="Expenses" component={ExpensesScreen} />
+      <Drawer.Screen name="Categories" component={CategoryScreen} />
     </Drawer.Navigator>
   );
 }

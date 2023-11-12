@@ -1,8 +1,8 @@
 import HomeScreen from "./screens/HomeScreen";
-import FoodScreen from "./screens/FoodScreen";
-import TransportScreen from "./screens/TransportScreen";
-import AddFoodScreen from "./screens/AddFoodScreen";
-import AddTransportScreen from "./screens/AddTransportScreen";
+import ExpensesScreen from "./screens/ExpensesScreen";
+import CategoryScreen from "./screens/CategoryScreen";
+import AddExpenseScreen from "./screens/AddExpenseScreen";
+import AddCategoryScreen from "./screens/AddCategoryScreen";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
@@ -15,27 +15,27 @@ export default function App() {
         <Stack.Screen
           name="Home"
           component={HomeScreen}
-          options={{ title: "Overview" }}
+          options={{ title: "Expense Tracker" }}
         />
         <Stack.Screen
-          name="Food"
-          component={FoodScreen}
-          options={{ title: "Food" }}
+          name="Expenses"
+          component={ExpensesScreen}
+          options={{ title: "Expenses" }}
         />
         <Stack.Screen
-          name="Transport"
-          component={TransportScreen}
-          options={{ title: "Transport" }}
+          name="Categories"
+          component={CategoryScreen}
+          options={{ title: "Categories" }}
         />
         <Stack.Screen
-          name="AddFood"
-          component={AddFoodScreen}
-          options={{ title: "Add Food" }}
+          name="AddExpense"
+          component={AddExpenseScreen}
+          options={{ title: "Add Expense" }}
         />
         <Stack.Screen
-          name="AddTransport"
-          component={AddTransportScreen}
-          options={{ title: "Add Transport" }}
+          name="AddCategory"
+          component={AddCategoryScreen}
+          options={{ title: "Add Category" }}
         />
       </Stack.Navigator>
     </NavigationContainer>

@@ -1,9 +1,9 @@
 import { Button, StyleSheet, View } from "react-native";
 
-export default function TransportScreen({ navigation }) {
+export default function CategoryScreen({ navigation }) {
   return (
     <View style={styles.button}>
-      <Button title="➕" onPress={() => navigation.navigate("AddTransport")} />
+      <Button title="➕" onPress={() => navigation.navigate("AddCategory")} />
     </View>
   );
 }
