@@ -1,18 +1,33 @@
-import { Button, StyleSheet, View } from "react-native";
+// CategoryScreen.js
+import React, { useEffect, useState } from 'react';
+import { Button, StyleSheet, View, Text } from 'react-native';
 
-export default function CategoryScreen({ navigation }) {
+export default function CategoryScreen({ route, navigation }) {
+  const [categories, setCategories] = useState([]);
+
+  useEffect(() => {
+    if (route.params?.updatedCategories) {
+      setCategories(route.params.updatedCategories);
+    }
+  }, [route.params?.updatedCategories]);
+
   return (
-    <View style={styles.button}>
-      <Button title="➕" onPress={() => navigation.navigate("AddCategory")} />
+    <View style={styles.container}>
+      <Button title="➕ Add Category" onPress={() => navigation.navigate("AddCategory")} />
+      {categories.map((category, index) => (
+        <Text key={index} style={styles.categoryItem}>{category}</Text>
+      ))}
     </View>
   );
 }
 
 const styles = StyleSheet.create({
-  button: {
+  container: {
     flex: 1,
-    justifyContent: "flex-end",
-    alignItems: "flex-end",
-    padding: 20,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  categoryItem: {
+    marginTop: 10,
   },
 });
