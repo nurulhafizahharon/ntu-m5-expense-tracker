@@ -20,7 +20,7 @@ export default function CategoryScreen({ navigation }) {
     };
 
     fetchCategories();
-  }, []);
+  }, [categories]);
 
   return (
     <View style={styles.container}>
