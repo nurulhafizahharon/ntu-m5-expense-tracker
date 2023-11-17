@@ -11,31 +11,31 @@ const Stack = createNativeStackNavigator();
 export default function App() {
   return (
     <NavigationContainer>
-      <Stack.Navigator>
+      <Stack.Navigator >
         <Stack.Screen
           name="Home"
           component={HomeScreen}
-          options={{ title: "Expense Tracker" }}
+          options={{headerShown: false}}
         />
         <Stack.Screen
           name="Expenses"
           component={ExpensesScreen}
-          options={{ title: "Expenses" }}
+          options={{headerShown: false}}
         />
         <Stack.Screen
           name="Categories"
           component={CategoryScreen}
-          options={{ title: "Categories" }}
+          options={{headerShown: false}}
         />
         <Stack.Screen
           name="AddExpense"
           component={AddExpenseScreen}
-          options={{ title: "Add Expense" }}
+          options={{ title: "Add an Expense" }}
         />
         <Stack.Screen
           name="AddCategory"
           component={AddCategoryScreen}
-          options={{ title: "Add Category" }}
+          options={{ title: "Add a Category" }}
         />
       </Stack.Navigator>
     </NavigationContainer>
