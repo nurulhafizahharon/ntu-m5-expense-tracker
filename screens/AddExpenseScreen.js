@@ -19,7 +19,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
 
 export default function AddExpenseScreen({ navigation }) {
   const [description, setDescription] = useState("");
-  const [amount, setAmount] = useState("0");
+  const [amount, setAmount] = useState("");
   const [date, setDate] = useState(new Date());
   const [showDatePicker, setShowDatePicker] = useState(false);
   const [category, setCategory] = useState("");

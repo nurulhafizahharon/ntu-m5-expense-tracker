@@ -25,7 +25,7 @@ export default function ExpensesScreen({ navigation }) {
     };
 
     fetchExpenses();
-  }, []);
+  }, [expenses]);
 
 
 
