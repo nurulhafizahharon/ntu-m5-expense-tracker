@@ -1,37 +1,53 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { ScrollView, StyleSheet, View } from "react-native";
 import { Button, Card, Text } from "react-native-elements";
 import Icon from "react-native-vector-icons/FontAwesome";
 import axios from "axios";
 
+import DataContext from "../DataContext";
 
 function capitalizeFirstLetter(str) {
-    return str.charAt(0).toUpperCase() + str.slice(1);
-  }
+  return str.charAt(0).toUpperCase() + str.slice(1);
+}
 
 export default function ExpensesScreen({ navigation }) {
   const [expenses, setExpenses] = useState([]);
+  const dataCtx = useContext(DataContext);
+
+  const fetchExpenses = async () => {
+    try {
+      const response = await axios.get(
+        "http://10.0.2.2:8080/users/1/wallets/1/expenses"
+      );
+
+      const expenseList = response.data;
+      const sortExpensesByDate = expenseList.map(obj => ({
+        ...obj,
+        dateObject: new Date(obj.expenseDate),
+      }));
+      sortExpensesByDate .sort((a, b) =>
+        b.dateObject - a.dateObject
+      );
+      setExpenses(sortExpensesByDate);
+    } catch (error) {
+      console.log("Error fetching data: ", error);
+    }
+  };
 
   useEffect(() => {
-    const fetchExpenses = async () => {
-      try {
-        const response = await axios.get(
-          "http://10.0.2.2:8080/users/1/wallets/1/expenses"
-        );
-        setExpenses(response.data);
-      } catch (error) {
-        console.log("Error fetching data: ", error);
-      }
-    };
-
     fetchExpenses();
-  }, [expenses]);
+  }, []);
 
-
+  useEffect(() => {
+    if (dataCtx.fetchData) {
+      fetchExpenses();
+      dataCtx.handlerData();
+    }
+  }, [dataCtx.fetchData]);
 
   return (
     <View style={styles.container}>
-      <ScrollView >
+      <ScrollView>
         <Text h4 style={styles.heading}>
           Expenses List:
         </Text>

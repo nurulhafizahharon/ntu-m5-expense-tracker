@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import {
   View,
   Text,
@@ -10,9 +10,12 @@ import {
 } from "react-native";
 import axios from "axios";
 import { useNavigation } from '@react-navigation/native';
+import DataContext from "../DataContext";
+
 
 export default function AddCategoryScreen() {
   const [category, setCategory] = useState(""); // Need to change to array
+  const dataCtx = useContext(DataContext);
 
   const navigation = useNavigation();
 
@@ -24,6 +27,7 @@ export default function AddCategoryScreen() {
         data
       );
       console.log(response.data);
+      dataCtx.handlerData();
       navigation.navigate("Home");
     } catch (error) {
       console.log("Error posting data: ", error);

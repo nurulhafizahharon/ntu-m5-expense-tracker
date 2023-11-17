@@ -1,5 +1,5 @@
 import axios from "axios";
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import {
   View,
   Text,
@@ -16,6 +16,8 @@ import Icon from "react-native-vector-icons/FontAwesome";
 
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
 
+import DataContext from "../DataContext";
+
 
 export default function AddExpenseScreen({ navigation }) {
   const [description, setDescription] = useState("");
@@ -24,6 +26,8 @@ export default function AddExpenseScreen({ navigation }) {
   const [showDatePicker, setShowDatePicker] = useState(false);
   const [category, setCategory] = useState("");
   const [categories, setCategories] = useState([]);
+
+  const dataCtx = useContext(DataContext);
 
   useEffect(() => {
     const fetchCategory = async () => {
@@ -87,6 +91,7 @@ export default function AddExpenseScreen({ navigation }) {
       );
       console.log(response.data);
       navigation.navigate("Home");
+      dataCtx.handlerData();
     } catch (error) {
       console.log("Error posting data: ", error);
       Alert.alert(error.response.data.message);
