@@ -18,7 +18,7 @@ export default function ExpensesScreen({ navigation }) {
     };
 
     fetchExpenses();
-  }, []); // Added empty dependency array to prevent infinite loop
+  }, []); 
 
   return (
     <ScrollView style={styles.container}>
@@ -34,7 +34,7 @@ export default function ExpensesScreen({ navigation }) {
       ))}
       <Button
         icon={<Icon name="plus" size={15} color="white" />}
-        title=" Add Expense"
+        title="Add Expense"
         buttonStyle={styles.button}
         onPress={() => navigation.navigate("AddExpense")}
       />

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { ScrollView, StyleSheet, View } from "react-native";
 import { Button, Card, Text } from "react-native-elements";
 import Icon from "react-native-vector-icons/FontAwesome";
-import axios from "axios"; // Make sure to import axios
+import axios from "axios"; 
 
 export default function CategoryScreen({ navigation }) {
   const [categories, setCategories] = useState([]);
@@ -31,7 +31,7 @@ export default function CategoryScreen({ navigation }) {
       <View style={styles.buttonContainer}>
         <Button
           icon={<Icon name="plus" size={15} color="white" />}
-          title=" Add Category"
+          title="Add Category"
           buttonStyle={styles.button}
           onPress={() => navigation.navigate("AddCategory")}
         />
